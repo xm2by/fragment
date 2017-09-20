@@ -59,6 +59,10 @@ reflow（回流）一定伴随着repaint（重绘），而repaint（重绘）可
 
 (10) window的resize；
 
+(11) 改变字体；
+
+(12) 激活伪类；
+
 ## 4. 哪些改变会引起repaint？
 修改结点的颜色，修改元素的visibility:hidden;。
 
@@ -83,3 +87,7 @@ reflow（回流）一定伴随着repaint（重绘），而repaint（重绘）可
 (4) [repaint和reflow（高效的操作DOM）](http://blog.csdn.net/notejs/article/details/11379795)
 
 (6) [javascript性能优化-repaint和reflow](http://www.cnblogs.com/jiajiaobj/archive/2012/06/11/2545291.html)
+
+(7) [reflow 和 repaint](https://segmentfault.com/a/1190000006104095)
+
+
