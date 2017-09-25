@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<ul id='parent'>
+		<li>child01</li>
+		<li>child02</li>
+		<li>child03</li>
+		<li>child04</li>
+		<li>child05</li>
+	</ul>
+
+	<!-- 未使用事件委托 -->
+	<!-- <script type='text/javascript'>
+		window.onload = function(){
+			var parent = document.getElementById('parent');
+			var child = parent.getElementsByTagName('li');
+			console.log(child);
+			for(var i = 0, len = child.length; i < len; i++){
+				child[i].onclick = function(){
+					alert(this.innerHTML);
+				}
+			}
+		}
+	</script> -->
+
+	<!-- 使用事件委托 -->
+	<script type='text/javascript'>
+		window.onload = function(){
+			var parent = document.getElementById('parent');
+			parent.addEventListener('click', function(event){
+				var event = event || window.event;
+				var target = event.target || event.srcElement;
+				if(target.nodeName.toLowerCase() == 'li'){
+					alert(target.innerHTML);
+				}
+			})
+		}
+	</script>
+</body>
+</html>
