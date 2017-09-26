@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>子元素为绝对定位时，margin、padding使用百分比单位</title>
+	<style>
+	    *{
+	    	padding:0;
+	    	margin:0;
+	    }
+		.child{
+			position:absolute;
+			top:10%;
+			left:10%;
+			width:100px;
+			height:200px;
+			padding-top:10%;          /*(body的宽度*10%)*/
+			padding-right:10%;        /*(body的宽度*10%)*/
+			padding-bottom:10%;       /*(body的宽度*10%)*/
+			padding-left:10%;         /*(body的宽度*10%)*/
+			border:10% solid ##000000;  /*无效的*/
+			margin-top:10%;           /*(body的宽度*10%)*/
+			margin-right:10%;         /*(body的宽度*10%)*/
+			margin-bottom:10%;        /*(body的宽度*10%)*/
+			margin-left:10%;          /*(body的宽度*10%)*/
+			background:#FF0000;
+		}
+		/*含有绝对定位的子元素的margin、padding使用百分比作为单位时，对应的margin、padding值计算是相对于body元素的width值。*/
+		/*含有绝对定位的子元素的top、bottom、left、right使用百分比作为单位时，top、bottom的计算是相对于body元素的height值；left、right的计算是相对于body元素的width值。*/
+		/*border的粗细不能使用百分比单位*/
+	</style>
+</head>
+<body>
+	<div class="child"></div>
+</body>
+</html>

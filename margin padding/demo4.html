@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>子元素为绝对定位时，margin、padding使用百分比单位</title>
+	<style>
+	    *{
+	    	padding:0;
+	    	margin:0;
+	    }
+		.parent{
+			position:relative;
+			width:800px;
+			height:500px;
+			padding:50px;
+			border:1px solid #826262;
+			margin:50px;
+			background:#FF0000;
+		}
+		.child{
+			position:absolute;
+			top:10%;                  /*(600*10%=90px)*/
+			left:10%;                 /*(900*10%=90px)*/
+			width:100px;
+			height:200px;
+			padding-top:10%;          /*(900*10%=90px)*/
+			padding-right:10%;        /*(900*10%=90px)*/
+			padding-bottom:10%;       /*(900*10%=90px)*/
+			padding-left:10%;         /*(900*10%=90px)*/
+			margin-top:10%;           /*(900*10%=90px)*/
+			margin-right:10%;         /*(900*10%=90px)*/
+			margin-bottom:10%;        /*(900*10%=90px)*/
+			margin-left:10%;          /*(900*10%=90px)*/
+			background:#8A8A8A;
+		}
+
+		/*含有绝对定位的子元素的margin、padding使用百分比作为单位时，对应的margin、padding值计算是相对于其具有定位属性父元素的width+padding值。*/
+		/*含有绝对定位的子元素的top、bottom、left、right使用百分比作为单位时，top、bottom的计算是相对于其具有定位属性父元素的height+padding值；left、right的计算是相对于其具有定位属性父元素的width+padding值。*/
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="child"></div>
+	</div>
+</body>
+</html>

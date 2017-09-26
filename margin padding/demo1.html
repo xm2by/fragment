@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>父元素的margin、padding使用百分比单位</title>
+	<style>
+	    *{
+	    	padding:0;
+	    	margin:0;
+	    }
+		.child{
+			width:800px;
+			height:500px;
+			padding-top:10%;             /*(body的宽*10%=80px)*/
+			padding-right:10%;           /*(body的宽*10%=80px)*/
+			padding-bottom:10%;          /*(body的宽*10%=80px)*/
+			padding-left:10%;            /*(body的宽*10%=80px)*/
+			margin-top:10%;              /*(body的宽*10%=80px)*/
+			margin-right:10%;            /*(body的宽*10%=80px)*/
+			margin-bottom:10%;           /*(body的宽*10%=80px)*/
+			margin-left:10%;             /*(body的宽*10%=80px)*/
+			background:#FF0000;
+		}
+
+		/*子元素的margin、padding使用百分比作为单位时，对应的margin、padding值计算是相对于body元素的宽度width。*/
+	</style>
+</head>
+<body>
+	<div class="child"></div>
+</body>
+</html>
