@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>对象方法调用模式</title>
+</head>
+<body>
+	<script>
+		var a = {};  //定义一个对象a
+		a.name = 'hello'; //定义a的name属性
+		a.getName = function(){
+			console.log(this.name);
+		} //定义a的getName方法
+
+		a.getName();  // hello
+	</script>
+</body>
+</html>

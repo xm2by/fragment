@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>构造函数调用模式</title>
+</head>
+<body>
+	<script>
+		function A(name){
+			this.name = name;  //定义构造函数的name属性
+			this.getName = function(){
+				console.log(this.name);
+			}  //定义构造函数的getName方法
+		}
+		var example1 = new A('Hello');
+		example1.getName(); //Hello
+		var example2 = new A('John');
+		example2.getName(); //John
+	</script>
+</body>
+</html>

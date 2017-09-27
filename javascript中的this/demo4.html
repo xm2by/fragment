@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>apply/call方法调用模式</title>
+</head>
+<body>
+	<script>
+		var example1 = {name: 'Hello'};
+		var example2 = {name: 'John'};
+		function a(){
+			console.log(this.name);
+		}
+		a.call(example1); //Hello
+		a.call(example2); //John
+		a.apply(example1); //Hello
+		a.apply(example2); //John
+	</script>
+</body>
+</html>
