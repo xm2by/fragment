@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>实现简单的闭包</title>
+</head>
+<body>
+	<script>
+		function f1(){
+			var a = 100;
+			function f2(){
+				console.log(a);
+			}
+			return f2;
+		}
+		var res = f1();
+		res();  //100
+
+		// 函数f2就是闭包
+
+		/*对上面的写法进行简化（两种完全等效），如下
+		function f1(){
+			var a = 100;
+			return function(){
+				console.log(a);
+			}
+		}
+		f1()();  //100*/
+	</script>
+</body>
+</html>

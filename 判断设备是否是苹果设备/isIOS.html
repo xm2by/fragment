@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>isIOS</title>
+</head>
+<body>
+	<script>
+		// 判断设备是否为苹果设备
+		var u = navigator.userAgent; //获取浏览器用于HTTP请求的用户代理头的值
+		console.log(u);
+		var reg = /\(i[^;]+;( U;)? CPU.+Mac OS X/; //用于匹配苹果设备的正则表达式
+		var isIOS = !!u.match(reg); //将匹配结果转变为布尔类型值
+		console.log(isIOS);
+
+
+		/* 除了使用字符串匹配（match()方法）之外，还可以使用正则表达式的test()、exec()方法进行匹配 */
+        console.log(reg.exec(u)); //使用exec()将返回匹配结果
+        console.log(reg.test(u)); //使用test()返回布尔类型值
+	</script>
+</body>
+</html>
