@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>为什么要为构造函数引入prototype属性（2）</title>
+</head>
+<body>
+	<script>
+		function Person(name){
+			this.name = name;
+		}
+		Person.prototype.country = 'China';
+
+		var person1 = new Person('Hello');
+		console.log(person1.country);
+		var person2 = new Person('John');
+		console.log(person2.country);
+
+		Person.prototype.country = 'England';
+		console.log(person1.country);
+		console.log(person2.country);
+	</script>
+</body>
+</html>
