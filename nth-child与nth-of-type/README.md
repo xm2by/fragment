@@ -22,7 +22,7 @@ p:nth-child(2){
 }
 ```
 
-[p:nth-child(2)]()
+[p:nth-child(2)](https://mxxumin.github.io/fragment/nth-child%E4%B8%8Enth-of-type/demo1.html)
 
 ```
 p:nth-of-type(2){
@@ -30,7 +30,7 @@ p:nth-of-type(2){
 }
 ```
 
-[p:nth-of-type(2)]()
+[p:nth-of-type(2)](https://mxxumin.github.io/fragment/nth-child%E4%B8%8Enth-of-type/demo2.html)
 
 结果：
 
@@ -58,7 +58,7 @@ p:nth-child(2){
 }
 ```
 
-[p:nth-child(2)]()
+[p:nth-child(2)](https://mxxumin.github.io/fragment/nth-child%E4%B8%8Enth-of-type/demo3.html)
 
 ```
 p:nth-of-type(2){
@@ -66,7 +66,7 @@ p:nth-of-type(2){
 }
 ```
 
-[p:nth-of-type(2)]()
+[p:nth-of-type(2)](https://mxxumin.github.io/fragment/nth-child%E4%B8%8Enth-of-type/demo4.html)
 
 结果：
 
@@ -76,9 +76,9 @@ p:nth-of-type(2){
 
 1、`p:nth-child(n)`是选择第n个子标签，不管子标签是什么类型的标签，就直接从父元素的第一个子标签开始计数；
 
-2、`p:nth-child(n)`等效于`section :nth-child(n)`，注意`section`与`:`之间的空格不能省； [section :nth-child(2)]()
+2、`p:nth-child(n)`等效于`section :nth-child(n)`，注意`section`与`:`之间的空格不能省； [section :nth-child(2)](https://mxxumin.github.io/fragment/nth-child%E4%B8%8Enth-of-type/demo5.html)
 
-3、`p:nth-child(n)`前面的`p`省略后，将会选择所有子标签；[:nth-child(2)]()
+3、`p:nth-child(n)`前面的`p`省略后，将会选择所有子标签；[:nth-child(2)](https://mxxumin.github.io/fragment/nth-child%E4%B8%8Enth-of-type/demo6.html)
 
 3、`p:nth-of-type(n)`是选择类型为`p`的第n个子标签，从第一个`p`标签开始计数；
 
