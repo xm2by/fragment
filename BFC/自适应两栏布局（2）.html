@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>自适应两栏布局（2）</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.aside{
+			float:left;
+			width:200px;
+			height:300px;
+			background:red;
+		}
+		.main{
+			/*触发main栏产生BFC，这样就可以形成自适应两栏布局，因为浮动的aside栏不会与main产生重叠*/
+			overflow:hidden;
+			height:500px;
+			background:blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="aside">我是aside栏</div>
+	<div class="main">我是main栏</div>
+</body>
+</html>

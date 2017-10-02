@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>防止垂直方向margin重叠（1）</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.parent{
+			overflow:hidden; /*利用BFC来防止子元素的margin产生留白现象*/
+			background:red;
+		}
+		.child{
+			width:200px;
+			height:100px;
+			margin:50px;
+			background:blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="child">我的margin是50px</div>
+		<div class="child">我的margin也是50px</div>
+	</div>
+</body>
+</html>

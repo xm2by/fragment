@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>防止垂直方向margin重叠（2）</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.parent{
+			overflow:hidden;
+			background:red;
+		}
+		.child{
+			width:200px;
+			height:100px;
+			margin:50px;
+			background:blue;
+		}
+		.bfc{
+			/*解决方法：为元素添加一个父元素并触发该父元素产生BFC*/
+			overflow:hidden;
+			/*float:left;*/
+			/*position:absolute;*/
+			/*display:inline-block;*/
+		}
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="child">我的margin是50px</div>
+		<div class="bfc">
+			<div class="child">我的margin也是50px</div>
+		</div>
+	</div>
+</body>
+</html>

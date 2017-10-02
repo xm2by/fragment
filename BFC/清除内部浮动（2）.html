@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>清除内部浮动（2）</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.parent{
+			overflow:hidden;
+			background:red;
+		}
+		.child{
+			float:left;
+			width:100px;
+			height:100px;
+			border:10px solid blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="child"></div>
+		<div class="child"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>防止子元素的margin产生留白现象（2）</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.parent{
+			/*解决方法：触发父元素产生BFC*/
+			/*overflow:hidden;*/
+			/*float:left;*/
+			/*position:absolute;*/
+			display:inline-block;
+			width:400px;
+			height:400px;
+			background:red;
+		}
+		.child{
+			width:100px;
+			height:100px;
+			margin:50px;
+			background:blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="child"></div>
+	</div>
+</body>
+</html>
