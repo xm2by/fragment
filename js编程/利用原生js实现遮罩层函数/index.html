@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>利用原生js实现遮罩层函数</title>
+	<style>
+		#target{
+			width:200px;
+			height:400px;
+			margin:50px;
+			background:red;
+		}
+	</style>
+</head>
+<body>
+	<div id="target"></div>
+	<script>
+		// 定义遮罩层函数，传入的参数是elem和opacity
+		function addMask(elem, opacity){
+			var opacity = opacity || 0.2;
+			// 获取被遮罩层元素在页面中的位置
+			var rect = elem.getBoundingClientRect();//Element.getBoundingClientRect()方法返回元素的大小及其相对于视口的位置
+			console.log(rect);
+			var style = window.getComputedStyle(elem, null); //getComputedStyle()方法是获取一个元素最终使用的所有css属性值
+			console.log(style);
+			// 定义遮罩层
+			var mask = document.createElement('div');
+			mask.style.position = 'absolute';
+			//通过解析style字符串为浮点数获取元素margin-left值，然后元素的offsetLeft与margin-left获取不同浏览器给元素的默认margin值
+			var marginLeft = parseFloat(style.marginLeft);//parseFloat()函数用于解析字符串并返回一个浮点数（数值）。它可以解析的字符包括正负号（+或-）、数字（0-9）、小数点、科学计数法中的指数（e或者E），除此之外，均不能解析。如果字符串的第一个字符不是上面可以解析的范畴，那么parseFloat()返回NaN；如果字符串的第一个字符是上面可以解析的范畴，则对字符串进行解析，直到遇到不能解析的，然后返回解析好的数值。
+			console.log(marginLeft);
+			console.log(elem.offsetLeft);
+			mask.style.left = (elem.offsetLeft - marginLeft) + 'px';
+			var marginTop = parseFloat(style.marginTop);
+			console.log(marginTop);
+			mask.style.top = (elem.offsetTop - marginTop) + 'px';
+			mask.style.zIndex = 9999;
+			mask.style.opacity = '' + opacity;
+			mask.style.backgroundColor = '#000';
+			//定义遮罩层的宽高
+			mask.style.width = (marginLeft + parseFloat(style.marginRight) + rect.width) + 'px';
+			mask.style.height = (marginTop + parseFloat(style.marginBottom) + rect.height) + 'px';
+			console.log('mask的宽' + mask.style.width);
+			console.log('mask的高' + mask.style.height);
+			//添加结点
+			elem.parentNode.appendChild(mask);
+		}
+		// 获取被遮罩层元素
+		var target = document.getElementById('target');
+		addMask(target);
+
+		//用于测试点击是否失效 理论上覆盖后点击失效
+		target.addEventListener('click', function(){
+			console.log('click');
+		}, false);
+	</script>
+</body>
+</html>
