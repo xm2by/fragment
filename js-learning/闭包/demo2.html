@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>demo2</title>
+</head>
+<body>
+	<ul id='list'>
+		<li>#1</li>
+		<li>#2</li>
+		<li>#3</li>
+	</ul>
+	<script>
+		var list = document.getElementById('list');
+		var listItems = list.getElementsByTagName('li');
+		/*未使用闭包显示结果都为3*/
+		/*for(var i=0, len=listItems.length; i<len; i++){
+			listItems[i].addEventListener('click', function(){
+				alert(i); //都是3
+			})
+		}*/
+
+		/*使用闭包后点击显示对应的数字*/
+		/*for(var i=0, len=listItems.length; i<len; i++){
+			!function(i){
+				listItems[i].addEventListener('click', function(){
+					alert(i); //点击显示对应的数字
+				})
+			}(i)
+		}*/
+
+		for(var i=0, len=listItems.length; i<len; i++){
+			listItems[i].addEventListener('click', (function(){
+				var index = i;
+				return function(){
+					alert(index); //点击显示对应的数字
+				}
+			})())
+		}
+	</script>
+</body>
+</html>

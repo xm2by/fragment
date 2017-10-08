@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>demo6</title>
+</head>
+<body>
+	<script>
+		/*对象方法函数中的this指向调用的该方法的对象*/
+		var person = {
+			name: 'John',
+			getName: function (){
+				return this.name;
+			}
+		}
+		console.log(person.getName());
+		/*end*/
+
+		/*对象方法函数中的this指向调用的该方法的对象*/
+		var person1 = {
+			name:'John'
+		}
+		function getName1(){
+			return this.name
+		}
+		person1.getName = getName1;
+		console.log(person1.getName()); 
+		/*end*/
+	</script>
+</body>
+</html>

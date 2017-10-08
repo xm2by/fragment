@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>demo3</title>
+</head>
+<body>
+	<script>
+		Function('var a = "local"; console.log(a)')(); //local
+		console.log(typeof a); //undefined
+
+		var b = 'global';
+		(function(){
+			var c = 'local';
+			Function('console.log("b:" + b); console.log("c:" + typeof c)')();
+		})(); //b:global c:undefined
+	</script>
+</body>
+</html>

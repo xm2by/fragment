@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>demo4</title>
+</head>
+<body>
+	<script>
+		console.log(this.document === document); //true
+
+		console.log(this === window); //true
+
+		this.a = 37;
+		console.log(window.a); //37
+	</script>
+</body>
+</html>

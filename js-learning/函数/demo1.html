@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>demo1</title>
+</head>
+<body>
+	<script>
+		function add(a, b){
+			if(typeof a === 'number' && typeof b === 'number'){
+				return a+b
+			}else{
+				return 0
+			}
+		}
+		add(1, '2'); //0
+		add(1, 2); //3
+
+		function add1(a, b){
+			return a+b;
+		}
+		add1(1,2);//3
+
+		function add2(a, b){
+			a+b;
+		}
+		add2(1,2);//undefined
+	</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>demo1</title>
+</head>
+<body>
+	<script>
+		/*未使用闭包*/
+		function f1(){
+			var local = 1;
+			return local
+		}
+		console.log(f1()); //2
+		//未使用闭包时，调用函数结束后，函数中的局部变量会被垃圾回收机制给销毁掉。
+		/*end*/
+
+		/*使用闭包*/
+		function f2(){
+			var local = 1;
+			return function(){
+				return local
+			}
+		}
+		console.log(f2()());
+		//使用闭包后，调用函数结束时，函数f2中的局部变量不会被垃圾回收机制给销毁掉。
+		/*end*/
+	</script>
+</body>
+</html>

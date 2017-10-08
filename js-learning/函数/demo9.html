@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>demo9</title>
+</head>
+<body>
+	<script>
+		/*start*/
+		function add(c, d){
+			return this.a + this.b + c + d; 
+		}
+
+		var example = {
+			a:1,
+			b:2
+		};
+
+		add.call(example, 3, 4); //10
+		add.apply(example, [3, 4]); //10
+		/*end*/
+
+		/*start*/
+		function typeCheck(){
+			console.log(Object.prototype.toString.call(this))
+		}
+		typeCheck.call(7);
+		/*end*/
+	</script>
+</body>
+</html>

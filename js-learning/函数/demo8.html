@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>demo8</title>
+</head>
+<body>
+	<script>
+		//构造函数中没有return
+		function F1(){
+			this.a = 1;
+			console.log(this);//F1
+		}
+		var f1 = new F1();
+		console.log(f1.a);//1
+
+		//构造函数中return对象
+		function F2(){
+			this.a = 1;
+			console.log(this);//F2
+			return {a:2}
+		}
+		var f2 = new F2();
+		console.log(f2.a); //2
+		
+		//构造函数中return基本数据类型
+		function F3(){
+			this.a = 1;
+			console.log(this);//F3
+			return 2;
+		}
+		var f3 = new F3();
+		console.log(f3.a);//1
+	</script>
+</body>
+</html>

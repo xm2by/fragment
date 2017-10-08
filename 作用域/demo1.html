@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>demo1</title>
+</head>
+<body>
+	<script>
+		var a = 1;
+
+		function f1(){
+			console.log(a);
+		}
+
+		function f2(){
+			var a = 2;
+			f1();
+		}
+
+		f2(); //1
+		// js采用的是词法作用域（或静态作用域），函数的作用域在函数定义的时候就决定了。
+	</script>
+</body>
+</html>

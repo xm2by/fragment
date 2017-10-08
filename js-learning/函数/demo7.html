@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>demo7</title>
+</head>
+<body>
+	<script>
+		var add = {
+			res: function(){
+				return this.a + this.b;
+			}
+		};
+		var example = Object.create(add); //example的原型就是add，example是add的一个实例
+		example.a = 1;
+		example.b = 2;
+		console.log(example.res()); //3
+		// 原型链上的this指向调用它的对象
+	</script>
+</body>
+</html>

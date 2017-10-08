@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>demo2</title>
+</head>
+<body>
+	<script>
+		/*函数声明 start*/
+		var res = add(1, 2);
+		console.log(res); //3
+
+		function add(a, b){
+			a = +a; //+a是对传入的a进行隐式类型转换，将其转换为number类型
+			b = +b;
+			if(isNaN(a)||isNaN(b)){
+				return
+			};
+			return a+b;
+		}
+		/*end*/
+
+		/*函数表达式 start*/
+		var res1 = add1(1, 2);
+		console.log(res1); //add1 is not a function
+
+		var add1 = function(a, b){
+			a = +a; //+a是对传入的a进行隐式类型转换，将其转换为number类型
+			b = +b;
+			if(isNaN(a)||isNaN(b)){
+				return
+			};
+			return a+b;
+		}
+		/*end*/
+
+		// 函数声明和变量声明会被提前
+	</script>
+</body>
+</html>

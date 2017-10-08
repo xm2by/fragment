@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>demo2</title>
+</head>
+<body>
+	<script>
+		function f1(){
+			var i = 1;
+			var f2 = new Function('console.log(i)');
+			f2(); //i is not defined
+		}
+		f1();
+	</script>
+</body>
+</html>

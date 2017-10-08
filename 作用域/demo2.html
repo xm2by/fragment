@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>demo2</title>
+</head>
+<body>
+	<script>
+		var a = 'global';
+
+		function f1(){
+			var a = 'local';
+			function f2(){
+				console.log(a);
+				return a;
+			}
+			return f2();
+		}
+
+		f1(); //local
+	</script>
+</body>
+</html>

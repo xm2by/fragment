@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>demo5</title>
+</head>
+<body>
+	<script>
+		function f1(){
+			return this;
+		}
+		console.log(f1() === window); //true
+
+		function f2(){
+			'use strict'
+			return this;
+		}
+		console.log(f2() === undefined); //true
+	</script>
+</body>
+</html>
