@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>验证是否是数组</title>
+</head>
+<body>
+	<script>
+		function isArray(obj){
+			return Object.prototype.toString.call(obj) === '[object Array]';
+		}
+
+		//example:
+		var f1 = function(){}
+		isArray(f1); //false
+
+		var a = [];
+		isArray(a); //true
+	</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo5</title>
+</head>
+<body>
+	<script>
+		console.log(Object.prototype.toString.apply([])); //[object Array]
+		console.log(Object.prototype.toString.apply(function(){})); //[object Function]
+		console.log(Object.prototype.toString.apply(null)); //[object Null]
+		console.log(Object.prototype.toString.apply(undefined)); //[object Undefined]
+		console.log(Object.prototype.toString.apply({a:1})); //[object Object]
+		console.log(Object.prototype.toString.apply(1)); //[object Number]
+		console.log(Object.prototype.toString.apply('1')); //[object String]
+		console.log(Object.prototype.toString.apply(true)); //[object Boolean]
+	</script>
+</body>
+</html>

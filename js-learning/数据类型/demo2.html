@@ -18,19 +18,19 @@
 		var d = '37' - 7; //-号表示减法运算
 		console.log(d);
 
-		console.log('123' == 123);
-		console.log(0 == false);
-		console.log(null == undefined);
-		console.log(new Object() == new Object());
-		console.log([1,2] == [1,2]);
-		console.log(null === null);
-		console.log(undefined === undefined);
-		console.log(NaN === NaN);
-		console.log('123' === 123);
-		console.log(0 === false);
-		console.log(null === undefined);
-		console.log(new Object() === new Object());
-		console.log([1,2] === [1,2]);
+		console.log('123' == 123); //true
+		console.log(0 == false); //true
+		console.log(null == undefined); //true
+		console.log(new Object() == new Object()); //false
+		console.log([1,2] == [1,2]); //false
+		console.log(null === null); //true
+		console.log(undefined === undefined); //true
+		console.log(NaN === NaN); //false
+		console.log('123' === 123); //false
+		console.log(0 === false); //false
+		console.log(null === undefined); //false
+		console.log(new Object() === new Object()); //false
+		console.log([1,2] === [1,2]); //false
 	</script>
 </body>
 </html>
