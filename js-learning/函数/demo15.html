@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dmeo15</title>
+</head>
+<body>
+	<script>
+		function f1(){
+			this.b = 1;
+			return this.a;
+		}
+		
+		var f2 = f1.bind({a:2});
+
+		console.log(f2()); //2
+		console.log(new f1()); //{b:1}
+
+		function f3(){
+			this.b = 1;
+			return {a:2};
+		}
+
+		console.log(new f3()); //{a:2}
+		//利用new操作符进行实例化时，如果构造函数return一个对象，那个生成的实例就指向该return的对象；如果构造函数return的不是一个对象，那么生成的实例就指向该构造函数
+	</script>
+</body>
+</html>

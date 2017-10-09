@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo11</title>
+</head>
+<body>
+	<script>
+		function f1(x, y, z){
+			console.log(arguments.length); //2
+			console.log(arguments[0]); //1
+			arguments[0] = 10;
+			console.log(x); //10
+
+			arguments[2] = 10;
+			console.log(z); //undefined
+
+			console.log(arguments instanceof Object); //true
+			console.log(arguments instanceof Array); //false
+		}
+		f1(1, 2);
+		console.log(f1.length); //3
+		console.log(f1.name); //f1
+		/*f1.length可以获取函数形参的个数，f1.name可以获取函数f1的名字，arguments.length可以获取函数实参的个数，arguments是函数内部管理实参的对象，类似于数组，但不是数组，因为arguments（arguments.prototype）原型链上没有Array.prototype，函数定义的实参，可以通过arguments[index]（index为实参的顺序指数，从0开始）来改变实参的值，函数未定义的实参，利用arguments[index]改变实参的值是无效的*/
+	</script>
+</body>
+</html>

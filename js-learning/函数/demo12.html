@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo12</title>
+</head>
+<body>
+	<script>
+		function f1(x, y){
+			console.log(x, y, this);
+		}
+
+		f1.call(100, 1, 2); //1 2 Number
+		f1.call(true, 1, 2); //1 2 Boolean
+		f1.call(null); //undefined undefined Window
+		f1.call(undefined); //undefined undefined Window
+
+		f1.apply(100, [1, 2]); //1 2 Number
+		f1.apply(true, [1, 2]); //1 2 Boolean
+		f1.apply(null); //undefined undefined Window
+		f1.apply(undefined); //undefined undefined Window
+
+		function f2(x, y){
+			'use strict'
+			console.log(x, y, this);
+		}
+
+		f2.call(null); //undefined undefined null
+		f2.call(undefined); //undefined undefined undefined
+	</script>
+</body>
+</html>

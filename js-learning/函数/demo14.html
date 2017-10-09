@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo14</title>
+</head>
+<body>
+	<script>
+		function add(a, b, c){
+			return a + b + c 
+		}
+
+		var f1 = add.bind(undefined, 100); //将add中参数a的值绑定为100，固定不变。
+		f1(1, 2); //此时f1的两个参数分别对应b和c
+		console.log(f1(1, 2))//103
+
+		var f2 = f1.bind(undefined, 200); //将f1中参数b的值绑定为200，固定不变。
+		f2(1); //此时f2中的参数对应c
+		console.log(f2(1)); //301
+	</script>
+</body>
+</html>

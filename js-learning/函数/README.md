@@ -153,7 +153,37 @@ func2(1,2); //3
 
 `demo9.html`
 
-* bind方法中的this指向bind中的对象参数；
+* bind方法中的this指向bind中的对象参数（第一个参数）；
 
 `demo10.html`
+
+## arguments
+
+* arguments是函数内部管理实参的对象，类似于数组，但不是数组，因为arguments（arguments.prototype）原型链上没有Array.prototype。
+
+* 函数定义的实参，可以通过arguments[index]（index为实参的顺序指数，从0开始）来改变实参的值（严格模式下是不能够改变的）；函数未定义的实参，利用arguments[index]改变实参的值是无效的。
+
+`demo11.html`
+
+## apply/call方法
+
+* apply/call方法中，this指向的是第一个参数；当第一个参数为数值时，会转换为Number；当第一个参数为布尔值时，会转换为Boolean；当第一参数为null和undefined时，在费严格模式下，会转换为Window，在严格模式下，将会转换为null和undefined。
+
+`demo12.html`
+
+## bind方法
+
+* bind方法的一个作用（绑定this）是将this指向bind中的对象参数（第一个参数）
+
+`demo13.html`
+
+* bind方法的另一个作用是柯里化（currying）。当函数中有多个形参且实际操作过程中有些形参值是不变的，此时，我们可以利用bind的柯里化将不变的形参值绑定，每次调用函数时，只需输入变化的形参。
+
+`dmeo14.html`
+
+* bind与new
+
+`demo15.html`
+
+
 
