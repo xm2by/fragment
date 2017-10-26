@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>清除浮动</title>
+	<style>
+		.parent{
+			background:gray;
+		}
+		.child{
+			float:left;
+			width:200px;
+			height:100px;
+			background:pink;
+		}
+		.clear{
+			clear:both;
+		}
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="child"></div>
+		<div class="clear"></div>
+	</div>
+</body>
+</html>
