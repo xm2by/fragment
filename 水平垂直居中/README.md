@@ -1,7 +1,15 @@
 # 水平垂直居中
 
+HTML:
+```
+<div class="container">
+    <div class="item"></div>
+</div>
+```
+
 ## 1、利用父元素相对定位、子元素绝对定位实以及top、right、bottom、left、margin来实现子元素水平垂直居中
 
+CSS:
 ```
 .container{
     position:relative;
@@ -31,6 +39,7 @@
 
 ## 2、利用父元素相对定位、子元素绝对定位实以及top、left、margin来实现子元素水平垂直居中
 
+CSS:
 ```
 .container{
     position:relative;
@@ -58,6 +67,7 @@
 
 ## 3、利用flex布局来实现子元素水平垂直居中
 
+CSS:
 ```
 .container{
     display:flex;
