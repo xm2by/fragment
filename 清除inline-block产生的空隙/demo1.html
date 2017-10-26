@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>清除display:inline-block带来的间隙</title>
+	<style>
+		.item{
+			display:inline-block;
+			width:50%;
+			height:50px;
+		}
+		.item1{
+			background:pink;
+		}
+		.item2{
+			background:gray;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="item item1"></div><div class="item item2"></div>
+	</div>
+	<div class="container">
+		<div class="item item1"></div><!-- 
+		 --><div class="item item2"></div>
+	</div>
+</body>
+</html>

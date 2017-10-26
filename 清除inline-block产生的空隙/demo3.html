@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>清除display:inline-block带来的间隙</title>
+	<style>
+		.container{
+			letter-spacing:-5px; /*chrome浏览器下设置为-5px*/
+		}
+		.item{
+			letter-spacing:0; /*为了让子元素中的内容letter-spacing不受父元素的影响*/
+			display:inline-block;
+			width:50%;
+			height:50px;
+		}
+		.item1{
+			background:pink;
+		}
+		.item2{
+			background:gray;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="item item1"></div>
+		<div class="item item2"></div>
+	</div>
+</body>
+</html>
