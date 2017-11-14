@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 	<style type="text/css">
 	    html,body{
+	    	position:relative;
 	    	width:100%;
 	    	padding:0;
 	    	margin:0;
@@ -17,7 +18,11 @@
 	    	background-size:100% auto;
 	    }
 	    .hide{
-	    	display:none;
+	    	position:absolute;
+	    	top:0;
+	    	left:0;
+	    	z-index:-1;
+	    	opacity:0;
 	    }
 	</style>
 </head>
