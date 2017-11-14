@@ -55,6 +55,7 @@ var i = function(){alert('a')}()    //undefined
 以上方法中关键字new的方法是最慢的，`(function(){;})()`比较快，加号在Chrome中速度最快。
 
 上面代码在Chrome浏览器console上运行的结果如图所示：
+
 ![](img/chrome上运行结果.png)
 
 ### 补充：
