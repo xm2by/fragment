@@ -32,7 +32,7 @@ console.log(newImg.height);
 
 其中`wrapper`为背景图片的容器。
 
-`Demo`:point_right:[演示地址](https://mxxumin.github.io/css-animation/3d%20transform/3d-translate.html):point_left:`别忘了这是移动端的页面哦！！！`
+`Demo`:point_right:[演示地址](https://mxxumin.github.io/fragment/%E8%8E%B7%E5%8F%96%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E5%AE%BD%E9%AB%98/demo2/index.html):point_left:`别忘了这是移动端的页面哦！！！`
 
 > 值得注意的是，如果图片和代码保存在本地，且在本地运行上面代码时，可能得到的背景图片宽高为0，不过不要紧，当把图片和代码放在线上时就不会出现上述问题。
 
