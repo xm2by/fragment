@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>首测排行榜奖励</title>
+	<title>获取背景图片宽高</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 	<style type="text/css">
@@ -16,27 +16,33 @@
 	    	background:url(bg.jpg) top left no-repeat;
 	    	background-size:100% auto;
 	    }
+	    .hide{
+	    	opacity:0;
+	    }
 	</style>
 </head>
 <body>
 
+	<img class="bgImg hide" src="img/bg.jpg">
 	<div class="wrapper">
 	</div>
 
 	<script charset="utf-8" src="https://nie.res.netease.com/comm/js/zepto(mixNIE).last.js"></script>
 
 	<script type="text/javascript">
-		 $(function(){
-			 $("html").css("font-size",document.documentElement.clientWidth/375*312.5+"%");
-		 })
-		 var bgImg = $('.wrapper').css('background-image');
-		 console.log(bgImg);
-		 var bgImgSrc = bgImg.split('("')[1].split('")')[0];
-		 console.log(bgImgSrc);
-		 newImg = new Image();
-		 newImg.src = bgImgSrc;
-		 console.log(newImg.height);
-		 $('.wrapper').css('height', newImg.height/100 + 'rem');
+
+		$(function(){
+			$("html").css("font-size",document.documentElement.clientWidth/375*312.5+"%");
+		})
+		
+		// 获取背景图片的宽高
+		var bgWidth = $('.bgImg').width(),
+		    bgHeight = $('.bgImg').height();
+		console.log(bgWidth);
+		console.log(bgHeight);
+		
+		$('.wrapper').css('height', bgHeight/100 + 'rem');
+
 	</script>
 
 </body>
