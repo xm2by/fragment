@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>移动端横竖屏的检测与切换</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" >
+</head>
+<body>
+	<script>
+		if(window.orientation == 90 || window.orientation == -90){
+			document.getElementsByTagName('body')[0].style.background = 'red';
+		}
+	</script>
+</body>
+</html>
