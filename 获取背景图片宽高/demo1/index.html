@@ -13,14 +13,19 @@
 	    .wrapper{
 	    	position:relative;
 	    	width:100%;
-	    	background:url(bg.jpg) top left no-repeat;
+	    	background:url(../img/bg.jpg) top left no-repeat;
 	    	background-size:100% auto;
+	    }
+	    .hide{
+	    	opacity:0;
 	    }
 	</style>
 </head>
 <body>
 
-	<div class="wrapper"></div>
+	<img class="bgImg hide" src="img/bg.jpg">
+	<div class="wrapper">
+	</div>
 
 	<script charset="utf-8" src="https://nie.res.netease.com/comm/js/zepto(mixNIE).last.js"></script>
 
@@ -29,22 +34,14 @@
 		$(function(){
 			$("html").css("font-size",document.documentElement.clientWidth/375*312.5+"%");
 		})
-
-		// 获取背景图片的url
-		var bgImg = $('.wrapper').css('background-image');
-		console.log(bgImg);
-		// 对url进行提取，提取出背景图片的路径地址
-		var bgImgSrc = bgImg.split('("')[1].split('")')[0];
-		console.log(bgImgSrc);
-		// 新建一个图片对象
-		newImg = new Image();
-		// 将背景图片的路径赋值给新建的图片对象
-		newImg.src = bgImgSrc;
-		// 获取背景图片的宽高
-		console.log(newImg.width);
-		console.log(newImg.height);
 		
-		$('.wrapper').css('height', newImg.height/100 + 'rem');
+		// 获取背景图片的宽高
+		var bgWidth = $('.bgImg').width(),
+		    bgHeight = $('.bgImg').height();
+		console.log(bgWidth);
+		console.log(bgHeight);
+		
+		$('.wrapper').css('height', bgHeight/100 + 'rem');
 
 	</script>
 
