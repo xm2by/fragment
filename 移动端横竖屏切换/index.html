@@ -65,6 +65,10 @@
         handleOrientationchange();
     })()
     window.addEventListener('orientationchange', handleOrientationchange, false);
+    $(window).resize(function{
+        alert('ok');
+        handleOrientationchange();
+    })
     window.onresize = function(){
         alert('ok');
         handleOrientationchange();
