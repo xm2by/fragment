@@ -29,7 +29,9 @@
 //     window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize",     function(e){_onorientationchange(e);}, false);
 // })
     function handleOrientationchange(){
-        if(window.orientation == 90 || window.orientation == -90){
+        var clientWidth = document.documentElement.clientWidth;
+        var clientHeight = document.documentElement.clientHeight;
+        if(clientWidth < clientHeight){
             $('body').css('background', 'red');
         }else{
             $('body').css('background', 'blue');
