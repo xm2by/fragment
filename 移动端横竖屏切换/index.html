@@ -78,17 +78,17 @@
         }
     }
 
-        handleOrientationchange();
-        window.addEventListener('onorientationchange' in window ? 'orientation':'resize', handleOrientationchange, false);
+        // handleOrientationchange();
+        // window.addEventListener('onorientationchange' in window ? 'orientation':'resize', handleOrientationchange, false);
 
     // $(window).resize(function(){
     //     alert('ok');
     //     handleOrientationchange();
     // })
-    // window.onresize = function(){
-    //     alert('ok');
-    //     handleOrientationchange();
-    // }
+    window.onresize = function(){
+        alert('ok');
+        handleOrientationchange();
+    }
 	</script>
 </body>
 </html>
