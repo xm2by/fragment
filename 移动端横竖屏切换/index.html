@@ -44,6 +44,9 @@
     function handleOrientationchange(){
         var clientWidth = document.documentElement.clientWidth;
         var clientHeight = document.documentElement.clientHeight;
+            alert(clientWidth);
+            alert(clientHeight);
+            alert(window.orientation);
         if(window.orientation){
             if(window.orientation == 90 || window.orientation == -90){
                 $('.example').css('background', 'blue');
@@ -51,8 +54,6 @@
                 $('.example').css('background', 'red');
             }
         }else{
-            alert(clientWidth);
-            alert(clientHeight);
             if(clientWidth < clientHeight){
                 $('.example').css('background', 'red');
             }else{
@@ -63,7 +64,7 @@
     (function(){
         handleOrientationchange();
     })()
-    window.addEventListener('onorientationchange', handleOrientationchange, false);
+    window.addEventListener('orientationchange', handleOrientationchange, false);
     window.onresize = function(){
         handleOrientationchange();
     }
