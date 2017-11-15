@@ -75,10 +75,10 @@
             }
         }
     }
-    $(function(){
+    (function(){
         handleOrientationchange();
         window.addEventListener('onorientationchange' in window ? 'orientation':'resize', handleOrientationchange, false);
-    })
+    })()
     // $(window).resize(function(){
     //     alert('ok');
     //     handleOrientationchange();
