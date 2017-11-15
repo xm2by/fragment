@@ -4,20 +4,6 @@
 	<meta charset="UTF-8">
 	<title>移动端横竖屏的检测与切换</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" >
-    <meta name="format-detection" content="telephone=no" />
-        <meta name="format-detection" content="address=no" />
-        <meta name="applicable-device" content="mobile">
-        <meta http-equiv="Cache-Control" content="no-transform" />
-        <meta http-equiv="Cache-Control" content="no-siteapp" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="author" content="网易，NetEase Inc." />
-        <meta name="copyright" content="网易，NetEase Inc." />
-        <meta name="pmid" content="" />
-        <meta name="editor" content="" />
-        <meta name="designer" content="" />
-        <meta name="front-end technicist" content="kongtianyu" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <style>
         html, body{
             width:100%;
@@ -33,64 +19,56 @@
 </head>
 <body>
     <div class="example" id="example"></div>
-	<!-- <script src="https://nie.res.netease.com/comm/js/zepto(mixNIE).last.js"></script> -->
 	<script>
-		// var initScreen=function(callback){//初始化html  font-size
-    // $("html").css("font-size",document.documentElement.clientHeight/document.documentElement.clientWidth<1.5 ? (document.documentElement.clientHeight/603*312.5+"%") : (document.documentElement.clientWidth/375*312.5+"%")); //单屏全屏布局时使用,短屏下自动缩放
-//     $("html").css("font-size",document.documentElement.clientWidth/375*312.5+"%");//长页面时使用,不缩放
-//     if(callback)callback();
-// }
 
+        // 处理横竖屏函数
+        function handleOrientationchange(){
+            // 获取客户端的宽高
+            var clientWidth = document.documentElement.clientWidth;
+            var clientHeight = document.documentElement.clientHeight;
+            // 判断浏览器是否支持window.orientation
+            var isSupportWindowOrientation = (typeof window.orientation == 'number' && typeof window.onorientationchange == 'object');
 
-// function _onorientationchange(e){
-//     if(window.orientation==90||window.orientation==-90){
-//         $('body').css("background", "red");  //显示竖屏浏览提示框
-//     }else{//竖屏下恢复默认显示效果
-//         var st=setTimeout(initScreen,300);
-//          $('body').css("background", "blue");    
-//     }
-    
-// }
-// $(function(){
-//     initScreen();
-//     window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize",     function(e){_onorientationchange(e);}, false);
-// })
-    function handleOrientationchange(){
-        var clientWidth = document.documentElement.clientWidth;
-        var clientHeight = document.documentElement.clientHeight;
             alert(clientWidth);
             alert(clientHeight);
             alert(window.orientation);
-        if(window.orientation){
-            if(window.orientation == 90 || window.orientation == -90){
-                document.getElementById('example').style.background = 'blue';
+            alert(window.onorientationchange);
+            alert(isSupportWindowOrientation);
+            
+            // 如果支持window.orientation则使用window.orientation的值进行判断是否横屏，如果不支持，则利用客户端宽高的大小进行判断。
+            if(isSupportWindowOrientation){
+                if(window.orientation == 90 || window.orientation == -90){
+                    alert('o-blue');
+                    document.getElementById('example').style.background = 'blue';
+                }else{
+                    alert('o-red');
+                    document.getElementById('example').style.background = 'red';
+                }
             }else{
-                document.getElementById('example').style.background = 'red';
-            }
-        }else{
-            if(clientWidth < clientHeight){
-                alert('red');
-                document.getElementById('example').style.background = 'red';
-                // $('.example').css('background', 'red');
-            }else{
-                document.getElementById('example').style.background = 'blue';
+                if(clientWidth < clientHeight){
+                    alert('red');
+                    document.getElementById('example').style.background = 'red';
+                }else{
+                    alert('blue');
+                    document.getElementById('example').style.background = 'blue';
+                }
             }
         }
-    }
+    
+        // 为浏览器监听屏幕变化事件
+        // 第一种利用window的resize事件
+        // window.addEventListener('resize', handleOrientationchange, false);
 
-        // handleOrientationchange();
-        // window.addEventListener('onorientationchange' in window ? 'orientation':'resize', handleOrientationchange, false);
+        // window.onresize = function(){
+        //     alert('ok');
+        //     handleOrientationchange();
+        // }
+        
+        // 第二种利用window的orientationchange事件
+        // window.addEventListener('orientationchange', handleOrientationchange, false);
 
-    // $(window).resize(function(){
-    //     alert('ok');
-    //     handleOrientationchange();
-    // })
-    // window.onresize = function(){
-    //     alert('ok');
-    //     handleOrientationchange();
-    // }
-    // window.addEventListener('resize', handleOrientationchange, false);
-    window.addEventListener('orientationchange', handleOrientationchange, false);
+        // 第三种将以上两种结合使用
+        window.addEventListener('onorientationchange' in window ? 'orientationchange':'resize', handleOrientationchange, false);
 
 	</script>
 </body>
