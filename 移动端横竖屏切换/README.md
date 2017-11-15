@@ -3,11 +3,8 @@
 ### 利用window.orientation属性和orientationchange事件来切换横竖屏：
 
 **切换原理：**
-
 window.orientation = 0 表示竖屏；
-
 window.orientation = 90或-90 表示横屏；
-
 orientationchange事件可以监听到window.orientation属性值的变化；
 
 关键代码：
@@ -31,9 +28,7 @@ window.addEventListener('orientationchange', handleOrientationchange, false);
 ### 利用客户端宽高的比较来切换横竖屏：
 
 **切换原理：**
-
 竖屏状态下，客户端的宽小于高；
-
 横屏状态下，客户端的宽大于高；
 
 关键代码：
