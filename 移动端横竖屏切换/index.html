@@ -32,8 +32,8 @@
     </style>
 </head>
 <body>
-    <div class="example"></div>
-	<script src="https://nie.res.netease.com/comm/js/zepto(mixNIE).last.js"></script>
+    <div class="example" id="example"></div>
+	<!-- <script src="https://nie.res.netease.com/comm/js/zepto(mixNIE).last.js"></script> -->
 	<script>
 		// var initScreen=function(callback){//初始化html  font-size
     // $("html").css("font-size",document.documentElement.clientHeight/document.documentElement.clientWidth<1.5 ? (document.documentElement.clientHeight/603*312.5+"%") : (document.documentElement.clientWidth/375*312.5+"%")); //单屏全屏布局时使用,短屏下自动缩放
@@ -63,16 +63,17 @@
             alert(window.orientation);
         if(window.orientation){
             if(window.orientation == 90 || window.orientation == -90){
-                $('.example').css('background', 'blue');
+                document.getElementById('example').style.background = 'blue';
             }else{
-                $('.example').css('background', 'red');
+                document.getElementById('example').style.background = 'red';
             }
         }else{
             if(clientWidth < clientHeight){
                 alert('red');
-                $('.example').css('background', 'red');
+                document.getElementById('example').style.background = 'red';
+                // $('.example').css('background', 'red');
             }else{
-                $('.example').css('background', 'blue');
+                document.getElementById('example').style.background = 'blue';
             }
         }
     }
