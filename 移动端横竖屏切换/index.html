@@ -69,16 +69,17 @@
             }
         }else{
             if(clientWidth < clientHeight){
+                alert('red');
                 $('.example').css('background', 'red');
             }else{
                 $('.example').css('background', 'blue');
             }
         }
     }
-    (function(){
+
         handleOrientationchange();
         window.addEventListener('onorientationchange' in window ? 'orientation':'resize', handleOrientationchange, false);
-    })()
+
     // $(window).resize(function(){
     //     alert('ok');
     //     handleOrientationchange();
