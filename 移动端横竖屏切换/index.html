@@ -64,15 +64,15 @@
     (function(){
         handleOrientationchange();
     })()
-    window.addEventListener('orientationchange', handleOrientationchange, false);
-    $(window).resize(function(){
-        alert('ok');
-        handleOrientationchange();
-    })
-    window.onresize = function(){
-        alert('ok');
-        handleOrientationchange();
-    }
+    window.addEventListener('onorientationchange' in window ? 'orientation':'resize', handleOrientationchange, false);
+    // $(window).resize(function(){
+    //     alert('ok');
+    //     handleOrientationchange();
+    // })
+    // window.onresize = function(){
+    //     alert('ok');
+    //     handleOrientationchange();
+    // }
 	</script>
 </body>
 </html>
