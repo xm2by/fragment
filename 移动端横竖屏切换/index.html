@@ -11,9 +11,14 @@
             padding:0;
             margin:0;
         }
+        .example{
+            width:100%;
+            height:50px;
+        }
     </style>
 </head>
 <body>
+    <div class="example"></div>
 	<script src="https://nie.res.netease.com/comm/js/zepto(mixNIE).last.js"></script>
 	<script>
 		// var initScreen=function(callback){//初始化html  font-size
@@ -39,10 +44,18 @@
     function handleOrientationchange(){
         var clientWidth = document.documentElement.clientWidth;
         var clientHeight = document.documentElement.clientHeight;
-        if(clientWidth < clientHeight){
-            $('body').css('background', 'red');
+        if(window.orientation){
+            if(window.orientation == 90 || window.orientation == -90){
+                $('.example').css('background', 'blue');
+            }else{
+                $('.example').css('background', 'red');
+            }
         }else{
-            $('body').css('background', 'blue');
+            if(clientWidth < clientHeight){
+                $('.example').css('background', 'red');
+            }else{
+                $('.example').css('background', 'blue');
+            }
         }
     }
     (function(){
