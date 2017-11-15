@@ -4,6 +4,20 @@
 	<meta charset="UTF-8">
 	<title>移动端横竖屏的检测与切换</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" >
+    <meta name="format-detection" content="telephone=no" />
+        <meta name="format-detection" content="address=no" />
+        <meta name="applicable-device" content="mobile">
+        <meta http-equiv="Cache-Control" content="no-transform" />
+        <meta http-equiv="Cache-Control" content="no-siteapp" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="author" content="网易，NetEase Inc." />
+        <meta name="copyright" content="网易，NetEase Inc." />
+        <meta name="pmid" content="" />
+        <meta name="editor" content="" />
+        <meta name="designer" content="" />
+        <meta name="front-end technicist" content="kongtianyu" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <style>
         html, body{
             width:100%;
@@ -61,10 +75,10 @@
             }
         }
     }
-    (function(){
+    $(function(){
         handleOrientationchange();
-    })()
-    window.addEventListener('onorientationchange' in window ? 'orientation':'resize', handleOrientationchange, false);
+        window.addEventListener('onorientationchange' in window ? 'orientation':'resize', handleOrientationchange, false);
+    })
     // $(window).resize(function(){
     //     alert('ok');
     //     handleOrientationchange();
