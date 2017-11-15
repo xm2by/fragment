@@ -85,10 +85,11 @@
     //     alert('ok');
     //     handleOrientationchange();
     // })
-    window.onresize = function(){
-        alert('ok');
-        handleOrientationchange();
-    }
+    // window.onresize = function(){
+    //     alert('ok');
+    //     handleOrientationchange();
+    // }
+    window.addEventListener('resize', handleOrientationchange, false);
 	</script>
 </body>
 </html>
