@@ -3,31 +3,42 @@
 <head>
 	<meta charset="UTF-8">
 	<title>移动端横竖屏的检测与切换</title>
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" > -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" >
 </head>
 <body>
 	<script src="https://nie.res.netease.com/comm/js/zepto(mixNIE).last.js"></script>
 	<script>
-		var initScreen=function(callback){//初始化html  font-size
+		// var initScreen=function(callback){//初始化html  font-size
     // $("html").css("font-size",document.documentElement.clientHeight/document.documentElement.clientWidth<1.5 ? (document.documentElement.clientHeight/603*312.5+"%") : (document.documentElement.clientWidth/375*312.5+"%")); //单屏全屏布局时使用,短屏下自动缩放
-    $("html").css("font-size",document.documentElement.clientWidth/375*312.5+"%");//长页面时使用,不缩放
-    if(callback)callback();
-}
+//     $("html").css("font-size",document.documentElement.clientWidth/375*312.5+"%");//长页面时使用,不缩放
+//     if(callback)callback();
+// }
 
 
-function _onorientationchange(e){
-    if(window.orientation==90||window.orientation==-90){
-        $('body').css("background", "red");  //显示竖屏浏览提示框
-    }else{//竖屏下恢复默认显示效果
-        var st=setTimeout(initScreen,300);
-         $('body').css("background", "blue");    
-    }
+// function _onorientationchange(e){
+//     if(window.orientation==90||window.orientation==-90){
+//         $('body').css("background", "red");  //显示竖屏浏览提示框
+//     }else{//竖屏下恢复默认显示效果
+//         var st=setTimeout(initScreen,300);
+//          $('body').css("background", "blue");    
+//     }
     
-}
-$(function(){
-    initScreen();
-    window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize",     function(e){_onorientationchange(e);}, false);
-})
+// }
+// $(function(){
+//     initScreen();
+//     window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize",     function(e){_onorientationchange(e);}, false);
+// })
+    function handleOrientationchange(){
+        if(window.orientation == 90 || window.orientation == -90){
+            $('body').css('background', 'red');
+        }else{
+            $('body').css('background', 'blue');
+        }
+    }
+    (function(){
+        handleOrientationchange();
+        window.addEventListener('onorientationchange', handleOrientationchange, false);
+    })()
 	</script>
 </body>
 </html>
