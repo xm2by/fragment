@@ -37,8 +37,11 @@
     }
     (function(){
         handleOrientationchange();
-        window.addEventListener('onorientationchange', handleOrientationchange, false);
     })()
+    window.addEventListener('onorientationchange', handleOrientationchange, false);
+    window.onresize = function(){
+        handleOrientationchange();
+    }
 	</script>
 </body>
 </html>
