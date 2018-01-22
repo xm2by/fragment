@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>利用$.extend()写一个简单的插件</title>
+</head>
+<body>
+	<script src="https://xm2by.github.io/page-layout/jquerylib/jquery/jquery-3.2.1.min.js"></script>
+	<script>
+		// console.log($);
+		$.extend({
+			sayHello: function(name){
+				console.log('hello, ' + (name ? name : 'guest') + '!');
+			}
+		});
+		$.sayHello(); // 调用
+		$.sayHello('john'); // 带参调用
+
+		$.extend({
+			log: function(msg){
+				var now = new Date(),
+					y = now.getFullYear(),
+					mon = now.getMonth() + 1, // 月是从0开始
+					d = now.getDate(),
+					h = now.getHours(),
+					min = now.getMinutes(),
+					s = now.getSeconds();
+					time = y + '-' + mon + '-' + d + ' ' + h + ':' + min + ':' + s;
+				console.log(time + ' my app: ' + msg);
+ 			}
+		});
+		$.log('hello!'); // 调用
+	</script>
+</body>
+</html>

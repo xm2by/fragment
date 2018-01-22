@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>利用$.fn写一个简单的插件</title>
+</head>
+<body>
+	<ul>
+		<li>
+			<a href="http://www.baidu.com">百度</a>
+		</li>
+		<li>
+			<a href="http://www.qq.com">腾讯</a>
+		</li>
+		<li>
+			<a href="http://www.1688.com">阿里巴巴</a>
+		</li>
+	</ul>
+	<p>这是p标签，不是a标签</p>
+	<script src="https://xm2by.github.io/page-layout/jquerylib/jquery/jquery-3.2.1.min.js"></script>
+	<script src="jquery.myPlugin.js"></script>
+	<script>
+		console.log($('a'));
+		$(function(){
+			$('a').myPlugin();
+		})
+	</script>
+</body>
+</html>
