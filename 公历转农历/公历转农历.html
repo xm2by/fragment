@@ -66,10 +66,17 @@
         if(daySpan <= 0){
           // 有闰月时，月份的数组长度会变成13，因此，当闰月月份小于等于k时，lm不需要加1
           if(hasLeapMonth(lunarYearArr[ly - 1949]) && hasLeapMonth(lunarYearArr[ly - 1949]) <= k){
-            lm = k;
+            if (hasLeapMonth(lunarYearArr[ly - 1949]) < k) {
+                lm = k;
+            } else if (hasLeapMonth(lunarYearArr[ly - 1949]) === k) {
+                lm = '闰' + k;
+            } else {
+                lm = k + 1;
+            }
           }else{
             lm = k + 1;
           }
+          // 获取农历月份确定后的剩余天数
           daySpan += lunarYearMonths(lunarYearArr[ly - 1949])[k];
           break
         }
@@ -78,11 +85,15 @@
       // 确定输出农历哪一天
       ld = daySpan;
 
+      // 将计算出来的农历月份转换成汉字月份，闰月需要在前面加上闰字
+      if (hasLeapMonth(lunarYearArr[ly - 1949]) && (typeof (lm) === 'string' && lm.indexOf('闰') > -1)) {
+          lm = `闰${lunarMonth[/\d/.exec(lm) - 1]}`
+      } else {
+          lm = lunarMonth[lm - 1];
+      }
+
       // 将计算出来的农历年份转换为天干地支年
       ly = getTianGan(ly) + getDiZhi(ly);
-
-      // 将计算出来的农历月份转换成汉字月份
-      lm = lunarMonth[lm-1];
 
       // 将计算出来的农历天数转换成汉字
       if(ld < 11){
