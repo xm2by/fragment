@@ -1,12 +1,12 @@
 # 多个相邻按钮切换效果出现边框重叠问题的解决方法
 
-下图所示的是一种常见的切换效果，在实现这种切换效果时，经常会遇到相邻按钮边框重叠的问题（[查看demo]()），有没有好的解决方法呢？
+下图所示的是一种常见的切换效果，在实现这种切换效果时，经常会遇到相邻按钮边框重叠的问题（[查看demo](https://github.com/xm2by/fragment/blob/master/%E5%A4%9A%E4%B8%AA%E7%9B%B8%E9%82%BB%E6%8C%89%E9%92%AE%E5%88%87%E6%8D%A2%E6%95%88%E6%9E%9C%E5%87%BA%E7%8E%B0%E8%BE%B9%E6%A1%86%E9%87%8D%E5%8F%A0%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/demo/demo1.html)），有没有好的解决方法呢？
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191130100217838.gif)
+![在这里插入图片描述](assets/1.gif)
 
 所出现的边框重叠问题：
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2019113010092952.png)
+![在这里插入图片描述](assets/2.png)
 目前，很多优秀的UI组件库都有这种切换效果的组件，通过对他们实现方式的学习，现对边框重叠问题的解决方法做如下总结：
 
 1、`border-left` + `box-shadow`
@@ -46,8 +46,8 @@
 }
 ```
 
-最终效果如下（[查看demo]()）：
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191130104318303.gif)
+最终效果如下（[查看demo](https://github.com/xm2by/fragment/blob/master/%E5%A4%9A%E4%B8%AA%E7%9B%B8%E9%82%BB%E6%8C%89%E9%92%AE%E5%88%87%E6%8D%A2%E6%95%88%E6%9E%9C%E5%87%BA%E7%8E%B0%E8%BE%B9%E6%A1%86%E9%87%8D%E5%8F%A0%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/demo/demo2.html)）：
+![在这里插入图片描述](assets/3.gif)
 
 2、`margin` + `z-index`
 
@@ -79,8 +79,8 @@
 }
 ```
 
-最终效果如下（[查看demo]()）：
+最终效果如下（[查看demo](https://github.com/xm2by/fragment/blob/master/%E5%A4%9A%E4%B8%AA%E7%9B%B8%E9%82%BB%E6%8C%89%E9%92%AE%E5%88%87%E6%8D%A2%E6%95%88%E6%9E%9C%E5%87%BA%E7%8E%B0%E8%BE%B9%E6%A1%86%E9%87%8D%E5%8F%A0%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/demo/demo3.html)）：
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191130110204906.gif)
+![在这里插入图片描述](assets/4.gif)
 
 以上就是目前我觉的解决边框重叠问题比较好的解决方案，仅供参考。
