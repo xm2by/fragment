@@ -7,9 +7,10 @@
 所出现的边框重叠问题：
 
 ![在这里插入图片描述](assets/2.png)
+
 目前，很多优秀的UI组件库都有这种切换效果的组件，通过对他们实现方式的学习，现对边框重叠问题的解决方法做如下总结：
 
-1、`border-left` + `box-shadow`
+### 1、`border-left` + `box-shadow`
 
 使用vue或react的伙伴，肯定都非常熟悉`element`或`ant-design`组件库，对于这种边框重叠问题，他们的解决方法相同，都是通过`border-left` + `box-shadow`来解决；具体展开就是：对于正常状态下的按钮，让所有按钮的`border-left`设置为0，并为第一个按钮单独设置`border-left`；对于处于激活状态的按钮，改变其`border-color`，此时激活状态的按钮由于左边框为0，产生颜色缺失，通过设置`box-shadow`来解决激活状态按钮左边框颜色缺失，`box-shadow`在盒模型中不占据空间，因此该解决方法非常巧妙。
 
@@ -49,7 +50,7 @@
 最终效果如下（[查看demo](https://github.com/xm2by/fragment/blob/master/%E5%A4%9A%E4%B8%AA%E7%9B%B8%E9%82%BB%E6%8C%89%E9%92%AE%E5%88%87%E6%8D%A2%E6%95%88%E6%9E%9C%E5%87%BA%E7%8E%B0%E8%BE%B9%E6%A1%86%E9%87%8D%E5%8F%A0%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/demo/demo2.html)）：
 ![在这里插入图片描述](assets/3.gif)
 
-2、`margin` + `z-index`
+### 2、`margin` + `z-index`
 
 使用`margin` + `z-index`来解决边框重叠问题，具体如下：按钮的每个边框都保留，对于正常状态的按钮，通过设置`margin-left: -1px;`将每个按钮向左移动一个像素，这样后一个按钮的左边框会遮盖前一个按钮的右边框；一次来解决正常状态下边框重叠问题；对于处于激活状态按钮，通过改变其`z-index`值来将被后一个按钮覆盖的右边框显示出来；
 
