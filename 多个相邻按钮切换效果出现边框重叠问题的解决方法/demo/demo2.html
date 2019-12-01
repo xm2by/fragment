@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .btn-group{
+      display: flex;
+      margin: 16px;
+    }
+    .btn-item{
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80px;
+      height: 32px;
+      border: 1px solid rgba(0, 0, 0, .4);
+      border-left: 0;
+      cursor: pointer;
+    }
+    .btn-item:first-child{
+      border-left: 1px solid rgba(0, 0, 0, .4);
+    }
+    .btn-item.active{
+      border-color: #4A81FF;
+      color: #2C5DFF;
+      background: rgba(44, 93, 255, .1);
+      box-shadow: -1px 0 0 0 #4A81FF;
+    }
+    .btn-item.active:first-child{
+      box-shadow: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="btn-group">
+    <div class="btn-item active">北京</div>
+    <div class="btn-item">上海</div>
+    <div class="btn-item">广州</div>
+    <div class="btn-item">深圳</div>
+    <div class="btn-item">杭州</div>
+  </div>
+  <script>
+    const btnGroup = document.querySelector('.btn-group')
+    const btnItemList = btnGroup.querySelectorAll('.btn-item')
+    btnGroup.addEventListener('click', (e) => {
+      btnItemList.forEach(item => {
+        item.classList.remove('active')
+      })
+      e.target.classList.add('active')
+    })
+  </script>
+</body>
+</html>
