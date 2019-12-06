@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>区分click事件与mousedown、mouseup事件</title>
+  <style>
+    .box{
+      width: 100px;
+      cursor: pointer;
+    }
+    .img{
+      width: 100px;
+      height: 100px;
+      border: 1px solid rgba(0, 0, 0, .12);
+      border-radius: 50px;
+      background-image: url('../assets/tomato.png');
+      background-size: 100%;
+      background-position: center;
+    }
+    .text{
+      display: none;
+      text-align: center;
+      color: rgba(0, 0, 0, .4);
+    }
+    .text.show{
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="img"></div>
+    <div class="text">我是西红柿^_^</div>
+  </div>
+  <script>
+    /* 以下代码是对于可拖拽可点击的元素，我们如何区分是拖拽行为还是点击行为？
+    本质就是利用mousemove区分鼠标mousedown、mouseup与click事件 */
+
+    let isMove = false // 全局标识、用于区分是拖拽事件还是点击事件
+    let dx // 拖拽时，鼠标与图片左侧的距离
+    let dy // 拖拽时，鼠标与图片顶部的距离
+    let textHeight // 用于储存隐藏文字的高度，用于临界情况处理
+
+    const boxEle = document.querySelector('.box')
+    const imgEle = document.querySelector('.img')
+    const textEle = document.querySelector('.text')
+
+    imgEle.addEventListener('mousedown', handleMousedown)
+    imgEle.addEventListener('mouseup', handleMouseup)
+    imgEle.addEventListener('click', handleClick)
+
+    function handleMousedown(e) {
+      // 鼠标按下时，isMove设置为false
+      isMove = false
+      console.log('mousedown')
+      // 获取dx、dy值
+      dx = e.clientX - boxEle.getBoundingClientRect().left
+      dy = e.clientY - boxEle.getBoundingClientRect().top
+      // 鼠标按键按下去时，添加mousemove事件监听
+      window.addEventListener('mousemove', handleMousemove)
+    }
+
+    function handleMousemove(e) {
+      // 点击事件click不会触发mousemove，而拖拽事件会触发，以此作为区分条件，在mousemove事件触发时设置isMove为true
+      isMove = true
+      console.log('mousemove')
+      boxEle.style.position = 'fixed'
+      // 拖拽时，让元素跟着鼠标移动，并处理临界情况
+      if (e.clientY - dy < 0) {
+        boxEle.style.top = `0px`
+      } else if (window.innerHeight < (e.clientY - dy + boxEle.getBoundingClientRect().height)) {
+        boxEle.style.top = `${window.innerHeight - boxEle.getBoundingClientRect().height}px`
+      } else {
+        boxEle.style.top = `${e.clientY - dy}px`
+      }
+      
+      if (e.clientX - dx < 0) {
+        boxEle.style.left = `0px`
+      } else if(window.innerWidth < (e.clientX - dx + boxEle.getBoundingClientRect().width)) {
+        boxEle.style.left = `${window.innerWidth - boxEle.getBoundingClientRect().width}px`
+      } else {
+        boxEle.style.left = `${e.clientX - dx}px`
+      }
+    }
+
+    function handleMouseup(e) {
+      // 鼠标按键抬起时，取消mousemove事件监听
+      console.log('mouseup')
+      window.removeEventListener('mousemove', handleMousemove)
+    }
+
+    function handleClick(e) {
+      // 不管是拖拽行为还是点击行为都会触发点击事件，在此使用isMove作为区分，只有在点击行为时触发点击事件，拖拽行为不触发点击事件
+      if(!isMove){
+        console.log('click')
+        textEle.classList.toggle('show')
+        // 临界条件处理
+        if(textEle.classList.contains('show') && boxEle.style.top === `${window.innerHeight - imgEle.getBoundingClientRect().height}px`){
+          textHeight = textEle.getBoundingClientRect().height
+          boxEle.style.top = `${window.innerHeight - boxEle.getBoundingClientRect().height}px`
+        }
+        if((!textEle.classList.contains('show')) && boxEle.style.top === `${window.innerHeight - imgEle.getBoundingClientRect().height - textHeight}px`) {
+          boxEle.style.top = `${window.innerHeight - boxEle.getBoundingClientRect().height}px`
+        }
+      }
+    }
+  </script>
+</body>
+</html>
